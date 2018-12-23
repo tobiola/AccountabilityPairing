@@ -2,43 +2,104 @@
 #include <string>
 #include <fstream>
 #include <cassert>
+#include <vector>
 
 using namespace std;
 
-typedef struct {
+class Pair{
+ public:
   int count;
-  int id1;
-  int id2;
-} Edge;
+  int member1;
+  int member2;
+  bool operator<(const Pair &rhs) const {
+    return count < rhs.count;
+  }
+};
 
-void readMembers(string *members) {
+void swapPairs(Pair *x, Pair *y) {
+  Pair temp = *x;
+  *x = *y;
+  *y = temp;
+}
 
-  const string filename = "members.txt";
-  ifstream file(filename);
+class SmallGroup {
+ public:
+  SmallGroup();
+  int getMemberCount();
+  void readMembers();
+  void readPairs();
+  void sortPairs();
+  int getMemberId(string member);
+  void printPairs();
+  void choosePairs();
+
+ private:
+  string kMembersFilename;
+  string kLogsFilename;
+  vector <string> members;
+  vector <Pair> pairs;
+  vector <bool> paired;
+
+};
+
+SmallGroup::SmallGroup() {
+
+  kMembersFilename = "members.txt";
+  kLogsFilename = "logs.txt";
+
+  readMembers();
+  readPairs();
+
+}
+
+int SmallGroup::getMemberCount() {
+
+  ifstream file(kMembersFilename);
   assert(file);
-  cout << "Reading in File " << filename << endl;
+  cout << "Reading in File " << kMembersFilename << endl;
 
   int count = 0;
   while (!file.eof()) {
     string line;
     getline(file, line);
     if (line != "") {
-      members[count++] = line;
+      count++;
     }
   }
-  cout << count << " members scanned in:" << endl;
+  cout << count << " members counted:" << endl;
 
-  for (int i = 0; i < count; i++) {
-    cout << members[i] << endl;
+  cout << endl;
+
+  return count; 
+
+}
+
+void SmallGroup::readMembers() {
+
+  ifstream file(kMembersFilename);
+  assert(file);
+  cout << "Reading in File " << kMembersFilename << endl;
+
+  while (!file.eof()) {
+    string line;
+    getline(file, line);
+    if (line != "") {
+      members.push_back(line);
+    }
+  }
+  cout << members.size() << " members scanned in:" << endl;
+
+  for (int i = 0; i < members.size(); i++) {
+    cout << members.at(i) << endl;
   }
   cout << endl;
 
 }
 
-int getMemberId(string member, string *members) {
+int SmallGroup::getMemberId(string member) {
 
-  for (int i = 0; i < 14; i++) {
-    if (members[i] == member) {
+  for (int i = 0; i < members.size(); i++) {
+    if (members.at(i) == member) {
       return i;
     }
   }
@@ -48,46 +109,32 @@ int getMemberId(string member, string *members) {
 
 }
 
-void swapEdge(Edge *x, Edge *y) {
-  Edge temp = *x;
-  *x = *y;
-  *y = temp;
-}
+void SmallGroup::sortPairs() {
 
-void sortGraph(Edge *graph, int edges) {
+  cout << "Sorting pairs" << endl;
 
-  cout << "Sorting graph" << endl;
-
-  for (int i = 0; i < edges - 1; i++) {
-    for (int j = 0; j < edges - 1; j++) {
-      if (graph[j].count >= graph[j+1].count) {
-        swapEdge(&graph[j], &graph[j+1]);
-      }
-    }
-  }
+  sort(pairs.begin(), pairs.end());
 
 }
 
-void makeGraph(Edge *graph, string *members, int edges, int m_count) {
+void SmallGroup::readPairs() {
 
-  cout << "Making graph" << endl;
+  cout << "Making pairs" << endl;
 
   int count = 0;
-  for (int i = 0; i < m_count; i++) {
-    for (int j = i + 1; j < m_count; j++) {
+  for (int i = 0; i < members.size(); i++) {
+    for (int j = i + 1; j < members.size(); j++) {
 
       cout << i << " " << j << endl;
-      graph[count].count = 0;
-      graph[count].id1 = i;
-      graph[count].id2 = j;
-      count++;
+      Pair pair = { 0, i, j };
+
+      pairs.push_back(pair);
     }
   }
 
-  const string filename = "logs.txt";
-  ifstream file(filename);
+  ifstream file(kLogsFilename);
   assert(file);
-  cout << "Reading in File " << filename << endl;
+  cout << "Reading in File " << kLogsFilename << endl;
 
   while (!file.eof()) {
     string line;
@@ -100,47 +147,58 @@ void makeGraph(Edge *graph, string *members, int edges, int m_count) {
         continue;
       }
 
-      int m1 = getMemberId(line.substr(0, split-1), members);
-      int m2 = getMemberId(line.substr(split+2, line.length()), members);
+      int m1 = getMemberId(line.substr(0, split-1));
+      int m2 = getMemberId(line.substr(split+2, line.length()));
       if (m1 > m2) {
         int temp = m1;
         m1 = m2;
         m2 = temp;
       }
-      for (int i = 0; i < edges; i++) {
-        if ((graph[i].id1 == m1) && (graph[i].id2 == m2)) {
-          graph[i].count++;
+      for (int i = 0; i < pairs.size(); i++) {
+        if ((pairs.at(i).member1 == m1) && (pairs.at(i).member2 == m2)) {
+          pairs.at(i).count++;
         }
       }
     }
   }
 }
 
-void printEdges(Edge *graph, int edges, string *members) {
+void SmallGroup::printPairs() {
+
+  sortPairs();
 
   cout << "Printing Edges" << endl;
 
-  for (int i = 0; i < edges; i++) {
+  for (int i = 0; i < pairs.size(); i++) {
 
-    cout << graph[i].count << " " << members[graph[i].id1] << " - " << members[graph[i].id2] << endl;
+    cout << pairs.at(i).count << " " << members[pairs.at(i).member1]
+         << " - " << members[pairs.at(i).member2] << endl;
 
   }
 
 }
 
-void printPairs(Edge *graph, bool *paired, string *members, int edges) {
+void SmallGroup::choosePairs() {
+
+  sortPairs();
 
   cout << "Printing Pairs" << endl;
 
-  for (int i = 0; i < edges; i++) {
-    if ((paired[graph[i].id1] == false) &&
-        (paired[graph[i].id2] == false)) {
+  paired.clear();
 
-      paired[graph[i].id1] = true;
-      paired[graph[i].id2] = true;
+  for (int i = 0; i < members.size(); i++) {
+    paired.push_back(false);
+  }
 
-      cout << members[graph[i].id1] << " - "
-           << members[graph[i].id2] << endl;
+  for (int i = 0; i < pairs.size(); i++) {
+    if ((paired.at(pairs.at(i).member1) == false) &&
+        (paired.at(pairs.at(i).member2) == false)) {
+
+      paired.at(pairs.at(i).member1) = true;
+      paired.at(pairs.at(i).member2) = true;
+
+      cout << members.at(pairs.at(i).member1) << " - "
+           << members.at(pairs.at(i).member2) << endl;
 
     }
 
@@ -150,20 +208,10 @@ void printPairs(Edge *graph, bool *paired, string *members, int edges) {
 
 int main() {
 
-  const int MEMBER_COUNT = 14;
-  const int EDGE_COUNT = (MEMBER_COUNT * (MEMBER_COUNT - 1))/2;
-  string members[MEMBER_COUNT];
-  Edge graph[EDGE_COUNT];
-  bool paired[MEMBER_COUNT] = { false };
+  SmallGroup sg;
 
-  readMembers(members);
+  sg.printPairs();
 
-  makeGraph(graph, members, EDGE_COUNT, MEMBER_COUNT);
-
-  sortGraph(graph, EDGE_COUNT);
-
-  printEdges(graph, EDGE_COUNT, members);
-
-  printPairs(graph, paired, members, EDGE_COUNT);
+  sg.choosePairs();
 
 }
