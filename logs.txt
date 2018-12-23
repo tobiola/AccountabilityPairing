@@ -1,0 +1,38 @@
+Joseph Chen - Shane Li
+Matthew Bae - Rebecca Kim
+Xuping Yan - Miriam Lee
+Tobi Ola - Jason Choi
+Daniel Hu - Grace Yun
+Kevin Lin - Rachel Lee
+Joshua Sauk - Andrew Tully
+ 
+Matthew Bae - Grace Yun
+Rebecca Kim - Kevin Lin
+Xuping Yan - Shane Li
+Miriam Lee - Rachel Lee
+Tobi Ola - Joseph Chen
+Joshua Sauk - Andrew Tully
+Daniel Hu - Jason Choi
+
+Matthew Bae - Xuping Yan
+Andrew Tully - Joseph Chen
+Rachel Lee - Miriam Lee
+Rebecca Kim - Jason Choi
+Tobi Ola - Shane Li
+Daniel Hu - Kevin Lin
+Joshua Sauk - Grace Yun
+
+Matthew Bae - Joseph Chen
+Andrew Tully - Miriam Lee
+Rachel Lee - Jason Choi
+Rebecca Kim - Shane Li
+Tobi Ola - Kevin Lin
+Daniel Hu - Grace Yun
+Joshua Sauk - Xuping Yan
+
+Kevin Lin - Rebecca Kim
+Joseph Chen - Matthew Bae
+Jason Choi - Xuping Yan
+Grace Yun - Tobi Ola
+Andrew Tully - Rachel Lee
+Daniel Hu - Joshua Sauk - Shane Li
