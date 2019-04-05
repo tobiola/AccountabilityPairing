@@ -3,6 +3,18 @@ Shane Li - Rachel Lee
 Hanson Ni - Tobi Ola
 Rebecca Kim - Matthew Bae
 Joshua Sauk - Joseph Chen
+Joshua Sauk - Tobi Ola
+
+Joseph Chen - Tobi Ola
+Sam Siwy - Tobi Ola
+Joseph Chen - Sam Siwy
+Rebecca Kim - Grace Yun
+Rebecca Kim - Rachel Lee
+Grace Yun - Rachel Lee
+
+Shane Li - Kevin Lin
+Matthew Bae - Kevin Lin
+Shane Li - Matthew Bae
 
 Joseph Chen - Shane Li
 Matthew Bae - Rebecca Kim
