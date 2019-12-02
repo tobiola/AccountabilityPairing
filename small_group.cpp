@@ -44,8 +44,13 @@ class SmallGroup {
 
 SmallGroup::SmallGroup() {
 
-  kMembersFilename = "members.txt";
-  kLogsFilename = "logs.txt";
+  string sg = "";
+
+  cout << "Enter your small group: ";
+  cin >> sg;
+
+  kMembersFilename = sg + "_members.txt";
+  kLogsFilename = sg + "_logs.txt";
 
   readMembers();
   readPairs();

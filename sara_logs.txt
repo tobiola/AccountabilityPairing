@@ -1,0 +1,47 @@
+Aerin Yang - Chris Shi
+Chloe Kim - Dasol Choi
+Daniel Lee - Joseph Kim
+Julie Kim - Joe Byun
+Jason Hong - Leonard C
+Moon Lee - sara yin
+Sarah Park - Samuel Siwy
+
+Dasol Choi - Samuel Siwy
+Aerin Yang - Chloe Kim
+Chris Shi - Daniel Lee
+sara yin - Sarah Park
+Joseph Kim - Julie Kim
+Joe Byun - Jason Hong
+Leonard C - Moon Lee
+
+sara yin - Samuel Siwy
+Aerin Yang - Dasol Choi
+Chris Shi - Chloe Kim
+Moon Lee - Sarah Park
+Daniel Lee - Julie Kim
+Joseph Kim - Joe Byun
+Jason Hong - Leonard C
+
+Julie Kim - Leonard C
+Aerin Yang - Sarah Park
+Joseph Kim - Moon Lee
+Joe Byun - Samuel Siwy
+Jason Hong - Chris Shi
+Daniel Lee - sara yin
+Chloe Kim - Dasol Choi
+
+Jason Hong - Sarah Park
+Aerin Yang - Moon Lee
+Julie Kim - Samuel Siwy
+Leonard C - Joe Byun
+Joseph Kim - sara yin
+Dasol Choi - Daniel Lee
+Chris Shi - Chloe Kim
+
+sara yin - Aerin Yang
+Joseph Kim - Sarah Park
+Julie Kim - Jason Hong
+Daniel Lee - Moon Lee
+Leonard C - Samuel Siwy
+Joe Byun - Chris Shi
+Chloe Kim - Dasol Choi
