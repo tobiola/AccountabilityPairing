@@ -15,3 +15,23 @@ Vicky Tang - Andy Zhang
 Justin Chen - Amy Kim
 Henry Wang - Angela Kim
 Matthew Choe - Nathan Chin
+
+Charis Chiu - Amber Wu
+Yasmin Siwy - Rachel Lam
+Henry Wang - Matthew Choe
+Tobi Ola - Jun-yeong Shin
+Amy Kim - Andy Zhang
+Angela Kim - Nathan Chin
+Dave Guo - Tobi Ola
+
+Amy Kim - Rachel Lam
+Tobi Ola - Jun-yeong Shin
+Matthew Choe - Amber Wu
+Dave Guo - Henry Wang
+Charis Chiu - Yasmin Siwy
+
+Amy Kim - Amber Wu
+Tobi Ola - Andy Zhang
+Henry Wang - Rachel Lam
+Yasmin Siwy - Matthew Choe
+Jun-yeong Shin - Dave Guo
